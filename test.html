@@ -1,0 +1,502 @@
+<div>
+  <style scoped>
+    .dataframe tbody tr th:only-of-type {
+      vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+      vertical-align: top;
+    }
+
+    .dataframe thead th {
+      text-align: right;
+    }
+  </style>
+  <table border="1" class="dataframe">
+    <thead>
+      <tr style="text-align: right">
+        <th></th>
+        <th>Model</th>
+        <th>Accuracy</th>
+        <th>Precision</th>
+        <th>Recall</th>
+        <th>F1</th>
+        <th>BalancedAcc</th>
+        <th>BusinessValue</th>
+        <th>Threshold</th>
+        <th>Split</th>
+        <th>BestParams</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>0</th>
+        <td>AdaBoost</td>
+        <td>0.146152</td>
+        <td>0.116104</td>
+        <td>0.994971</td>
+        <td>0.207942</td>
+        <td>0.516683</td>
+        <td>85080</td>
+        <td>0.39</td>
+        <td>Original</td>
+        <td>{'learning_rate': 1.5, 'n_estimators': 200}</td>
+      </tr>
+      <tr>
+        <th>1</th>
+        <td>XGBoost</td>
+        <td>0.137978</td>
+        <td>0.115193</td>
+        <td>0.995690</td>
+        <td>0.206496</td>
+        <td>0.512391</td>
+        <td>84770</td>
+        <td>0.14</td>
+        <td>Under</td>
+        <td>{'colsample_bytree': 1.0, 'learning_rate': 0.1...</td>
+      </tr>
+      <tr>
+        <th>2</th>
+        <td>RandomForest</td>
+        <td>0.116938</td>
+        <td>0.113134</td>
+        <td>1.000000</td>
+        <td>0.203271</td>
+        <td>0.502417</td>
+        <td>84640</td>
+        <td>0.01</td>
+        <td>SMOTE_Tomek</td>
+        <td>{'max_depth': 20, 'min_samples_leaf': 1, 'min_...</td>
+      </tr>
+      <tr>
+        <th>3</th>
+        <td>RandomForest</td>
+        <td>0.138869</td>
+        <td>0.115234</td>
+        <td>0.994971</td>
+        <td>0.206547</td>
+        <td>0.512579</td>
+        <td>84630</td>
+        <td>0.17</td>
+        <td>Under</td>
+        <td>{'max_depth': 10, 'min_samples_leaf': 1, 'min_...</td>
+      </tr>
+      <tr>
+        <th>4</th>
+        <td>AdaBoost</td>
+        <td>0.119851</td>
+        <td>0.113403</td>
+        <td>0.999282</td>
+        <td>0.203690</td>
+        <td>0.503745</td>
+        <td>84625</td>
+        <td>0.42</td>
+        <td>Over</td>
+        <td>{'learning_rate': 1.5, 'n_estimators': 200}</td>
+      </tr>
+      <tr>
+        <th>5</th>
+        <td>RandomForest</td>
+        <td>0.157482</td>
+        <td>0.117093</td>
+        <td>0.990661</td>
+        <td>0.209431</td>
+        <td>0.521185</td>
+        <td>84610</td>
+        <td>0.03</td>
+        <td>SMOTE_ENN</td>
+        <td>{'max_depth': 20, 'min_samples_leaf': 1, 'min_...</td>
+      </tr>
+      <tr>
+        <th>6</th>
+        <td>RandomForest</td>
+        <td>0.115643</td>
+        <td>0.112987</td>
+        <td>1.000000</td>
+        <td>0.203034</td>
+        <td>0.501687</td>
+        <td>84560</td>
+        <td>0.02</td>
+        <td>Over</td>
+        <td>{'max_depth': 20, 'min_samples_leaf': 1, 'min_...</td>
+      </tr>
+      <tr>
+        <th>7</th>
+        <td>RandomForest</td>
+        <td>0.115238</td>
+        <td>0.112941</td>
+        <td>1.000000</td>
+        <td>0.202960</td>
+        <td>0.501459</td>
+        <td>84535</td>
+        <td>0.01</td>
+        <td>SMOTE</td>
+        <td>{'max_depth': 20, 'min_samples_leaf': 1, 'min_...</td>
+      </tr>
+      <tr>
+        <th>8</th>
+        <td>GradientBoosting</td>
+        <td>0.113701</td>
+        <td>0.112767</td>
+        <td>1.000000</td>
+        <td>0.202679</td>
+        <td>0.500593</td>
+        <td>84440</td>
+        <td>0.08</td>
+        <td>Under</td>
+        <td>{'learning_rate': 0.05, 'max_depth': 5, 'n_est...</td>
+      </tr>
+      <tr>
+        <th>9</th>
+        <td>AdaBoost</td>
+        <td>0.113458</td>
+        <td>0.112740</td>
+        <td>1.000000</td>
+        <td>0.202635</td>
+        <td>0.500456</td>
+        <td>84425</td>
+        <td>0.43</td>
+        <td>SMOTE_ENN</td>
+        <td>{'learning_rate': 1.5, 'n_estimators': 200}</td>
+      </tr>
+      <tr>
+        <th>10</th>
+        <td>RandomForest</td>
+        <td>0.132395</td>
+        <td>0.114536</td>
+        <td>0.995690</td>
+        <td>0.205440</td>
+        <td>0.509245</td>
+        <td>84425</td>
+        <td>0.01</td>
+        <td>Original</td>
+        <td>{'max_depth': 20, 'min_samples_leaf': 1, 'min_...</td>
+      </tr>
+      <tr>
+        <th>11</th>
+        <td>AdaBoost</td>
+        <td>0.113296</td>
+        <td>0.112722</td>
+        <td>1.000000</td>
+        <td>0.202605</td>
+        <td>0.500365</td>
+        <td>84415</td>
+        <td>0.36</td>
+        <td>Under</td>
+        <td>{'learning_rate': 1.5, 'n_estimators': 50}</td>
+      </tr>
+      <tr>
+        <th>12</th>
+        <td>AdaBoost</td>
+        <td>0.112811</td>
+        <td>0.112667</td>
+        <td>1.000000</td>
+        <td>0.202517</td>
+        <td>0.500091</td>
+        <td>84385</td>
+        <td>0.41</td>
+        <td>SMOTE</td>
+        <td>{'learning_rate': 1.5, 'n_estimators': 200}</td>
+      </tr>
+      <tr>
+        <th>13</th>
+        <td>AdaBoost</td>
+        <td>0.112811</td>
+        <td>0.112667</td>
+        <td>1.000000</td>
+        <td>0.202517</td>
+        <td>0.500091</td>
+        <td>84385</td>
+        <td>0.41</td>
+        <td>SMOTE_Tomek</td>
+        <td>{'learning_rate': 1.5, 'n_estimators': 200}</td>
+      </tr>
+      <tr>
+        <th>14</th>
+        <td>DecisionTree</td>
+        <td>0.112649</td>
+        <td>0.112649</td>
+        <td>1.000000</td>
+        <td>0.202487</td>
+        <td>0.500000</td>
+        <td>84375</td>
+        <td>0.00</td>
+        <td>SMOTE</td>
+        <td>{'ccp_alpha': 0.0, 'criterion': 'gini', 'max_d...</td>
+      </tr>
+      <tr>
+        <th>15</th>
+        <td>DecisionTree</td>
+        <td>0.112649</td>
+        <td>0.112649</td>
+        <td>1.000000</td>
+        <td>0.202487</td>
+        <td>0.500000</td>
+        <td>84375</td>
+        <td>0.00</td>
+        <td>Original</td>
+        <td>{'ccp_alpha': 0.0, 'criterion': 'gini', 'max_d...</td>
+      </tr>
+      <tr>
+        <th>16</th>
+        <td>DecisionTree</td>
+        <td>0.112649</td>
+        <td>0.112649</td>
+        <td>1.000000</td>
+        <td>0.202487</td>
+        <td>0.500000</td>
+        <td>84375</td>
+        <td>0.00</td>
+        <td>SMOTE_Tomek</td>
+        <td>{'ccp_alpha': 0.0, 'criterion': 'gini', 'max_d...</td>
+      </tr>
+      <tr>
+        <th>17</th>
+        <td>DecisionTree</td>
+        <td>0.112649</td>
+        <td>0.112649</td>
+        <td>1.000000</td>
+        <td>0.202487</td>
+        <td>0.500000</td>
+        <td>84375</td>
+        <td>0.00</td>
+        <td>SMOTE_ENN</td>
+        <td>{'ccp_alpha': 0.0, 'criterion': 'gini', 'max_d...</td>
+      </tr>
+      <tr>
+        <th>18</th>
+        <td>DecisionTree</td>
+        <td>0.112649</td>
+        <td>0.112649</td>
+        <td>1.000000</td>
+        <td>0.202487</td>
+        <td>0.500000</td>
+        <td>84375</td>
+        <td>0.00</td>
+        <td>Under</td>
+        <td>{'ccp_alpha': 0.001, 'criterion': 'gini', 'max...</td>
+      </tr>
+      <tr>
+        <th>19</th>
+        <td>DecisionTree</td>
+        <td>0.112649</td>
+        <td>0.112649</td>
+        <td>1.000000</td>
+        <td>0.202487</td>
+        <td>0.500000</td>
+        <td>84375</td>
+        <td>0.00</td>
+        <td>Over</td>
+        <td>{'ccp_alpha': 0.0, 'criterion': 'gini', 'max_d...</td>
+      </tr>
+      <tr>
+        <th>20</th>
+        <td>GradientBoosting</td>
+        <td>0.112649</td>
+        <td>0.112649</td>
+        <td>1.000000</td>
+        <td>0.202487</td>
+        <td>0.500000</td>
+        <td>84375</td>
+        <td>0.00</td>
+        <td>Over</td>
+        <td>{'learning_rate': 0.2, 'max_depth': 7, 'n_esti...</td>
+      </tr>
+      <tr>
+        <th>21</th>
+        <td>GradientBoosting</td>
+        <td>0.112649</td>
+        <td>0.112649</td>
+        <td>1.000000</td>
+        <td>0.202487</td>
+        <td>0.500000</td>
+        <td>84375</td>
+        <td>0.00</td>
+        <td>SMOTE</td>
+        <td>{'learning_rate': 0.2, 'max_depth': 7, 'n_esti...</td>
+      </tr>
+      <tr>
+        <th>22</th>
+        <td>GradientBoosting</td>
+        <td>0.112649</td>
+        <td>0.112649</td>
+        <td>1.000000</td>
+        <td>0.202487</td>
+        <td>0.500000</td>
+        <td>84375</td>
+        <td>0.00</td>
+        <td>SMOTE_ENN</td>
+        <td>{'learning_rate': 0.2, 'max_depth': 7, 'n_esti...</td>
+      </tr>
+      <tr>
+        <th>23</th>
+        <td>GradientBoosting</td>
+        <td>0.112649</td>
+        <td>0.112649</td>
+        <td>1.000000</td>
+        <td>0.202487</td>
+        <td>0.500000</td>
+        <td>84375</td>
+        <td>0.00</td>
+        <td>SMOTE_Tomek</td>
+        <td>{'learning_rate': 0.2, 'max_depth': 7, 'n_esti...</td>
+      </tr>
+      <tr>
+        <th>24</th>
+        <td>GradientBoosting</td>
+        <td>0.112649</td>
+        <td>0.112649</td>
+        <td>1.000000</td>
+        <td>0.202487</td>
+        <td>0.500000</td>
+        <td>84375</td>
+        <td>0.00</td>
+        <td>Original</td>
+        <td>{'learning_rate': 0.1, 'max_depth': 7, 'n_esti...</td>
+      </tr>
+      <tr>
+        <th>25</th>
+        <td>XGBoost</td>
+        <td>0.112649</td>
+        <td>0.112649</td>
+        <td>1.000000</td>
+        <td>0.202487</td>
+        <td>0.500000</td>
+        <td>84375</td>
+        <td>0.00</td>
+        <td>Original</td>
+        <td>{'colsample_bytree': 1.0, 'learning_rate': 0.2...</td>
+      </tr>
+      <tr>
+        <th>26</th>
+        <td>XGBoost</td>
+        <td>0.112649</td>
+        <td>0.112649</td>
+        <td>1.000000</td>
+        <td>0.202487</td>
+        <td>0.500000</td>
+        <td>84375</td>
+        <td>0.00</td>
+        <td>SMOTE_ENN</td>
+        <td>{'colsample_bytree': 1.0, 'learning_rate': 0.2...</td>
+      </tr>
+      <tr>
+        <th>27</th>
+        <td>XGBoost</td>
+        <td>0.112649</td>
+        <td>0.112649</td>
+        <td>1.000000</td>
+        <td>0.202487</td>
+        <td>0.500000</td>
+        <td>84375</td>
+        <td>0.00</td>
+        <td>SMOTE</td>
+        <td>{'colsample_bytree': 0.8, 'learning_rate': 0.2...</td>
+      </tr>
+      <tr>
+        <th>28</th>
+        <td>XGBoost</td>
+        <td>0.112649</td>
+        <td>0.112649</td>
+        <td>1.000000</td>
+        <td>0.202487</td>
+        <td>0.500000</td>
+        <td>84375</td>
+        <td>0.00</td>
+        <td>SMOTE_Tomek</td>
+        <td>{'colsample_bytree': 1.0, 'learning_rate': 0.2...</td>
+      </tr>
+      <tr>
+        <th>29</th>
+        <td>XGBoost</td>
+        <td>0.112649</td>
+        <td>0.112649</td>
+        <td>1.000000</td>
+        <td>0.202487</td>
+        <td>0.500000</td>
+        <td>84375</td>
+        <td>0.00</td>
+        <td>Over</td>
+        <td>{'colsample_bytree': 1.0, 'learning_rate': 0.2...</td>
+      </tr>
+      <tr>
+        <th>30</th>
+        <td>ANN</td>
+        <td>0.112649</td>
+        <td>0.112649</td>
+        <td>1.000000</td>
+        <td>0.202487</td>
+        <td>0.500000</td>
+        <td>84375</td>
+        <td>0.00</td>
+        <td>Original</td>
+        <td>{'clf__activation': 'relu', 'clf__alpha': 0.00...</td>
+      </tr>
+      <tr>
+        <th>31</th>
+        <td>ANN</td>
+        <td>0.112649</td>
+        <td>0.112649</td>
+        <td>1.000000</td>
+        <td>0.202487</td>
+        <td>0.500000</td>
+        <td>84375</td>
+        <td>0.00</td>
+        <td>SMOTE</td>
+        <td>{'clf__activation': 'relu', 'clf__alpha': 0.00...</td>
+      </tr>
+      <tr>
+        <th>32</th>
+        <td>ANN</td>
+        <td>0.112649</td>
+        <td>0.112649</td>
+        <td>1.000000</td>
+        <td>0.202487</td>
+        <td>0.500000</td>
+        <td>84375</td>
+        <td>0.00</td>
+        <td>SMOTE_ENN</td>
+        <td>{'clf__activation': 'relu', 'clf__alpha': 0.00...</td>
+      </tr>
+      <tr>
+        <th>33</th>
+        <td>ANN</td>
+        <td>0.112649</td>
+        <td>0.112649</td>
+        <td>1.000000</td>
+        <td>0.202487</td>
+        <td>0.500000</td>
+        <td>84375</td>
+        <td>0.00</td>
+        <td>SMOTE_Tomek</td>
+        <td>{'clf__activation': 'relu', 'clf__alpha': 0.00...</td>
+      </tr>
+      <tr>
+        <th>34</th>
+        <td>ANN</td>
+        <td>0.112649</td>
+        <td>0.112649</td>
+        <td>1.000000</td>
+        <td>0.202487</td>
+        <td>0.500000</td>
+        <td>84375</td>
+        <td>0.00</td>
+        <td>Over</td>
+        <td>{'clf__activation': 'tanh', 'clf__alpha': 0.00...</td>
+      </tr>
+      <tr>
+        <th>35</th>
+        <td>ANN</td>
+        <td>0.112649</td>
+        <td>0.112649</td>
+        <td>1.000000</td>
+        <td>0.202487</td>
+        <td>0.500000</td>
+        <td>84375</td>
+        <td>0.00</td>
+        <td>Under</td>
+        <td>{'clf__activation': 'relu', 'clf__alpha': 0.00...</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
