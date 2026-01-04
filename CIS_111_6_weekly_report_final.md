@@ -1,4 +1,4 @@
-# CIS_111_6_weekly_report_final
+# ISDM Assignment
 
 '''python
 import numpy as np
@@ -567,6 +567,36 @@ print(sens_summary.to_string(index=False))
 [rep 2 fold 2] RandomForest+None done. ThrBV=46465 TopBV=43695
 [rep 2 fold 3] RandomForest+None done. ThrBV=48265 TopBV=43385
 [rep 2 fold 4] RandomForest+None done. ThrBV=49235 TopBV=44005
+[rep 2 fold 5] RandomForest+None done. ThrBV=49220 TopBV=44935
+[rep 1 fold 1] DecisionTree+None done. ThrBV=1540 TopBV=-2540
+[rep 1 fold 2] DecisionTree+None done. ThrBV=-2240 TopBV=-4300
+[rep 1 fold 3] DecisionTree+None done. ThrBV=7500 TopBV=2300
+[rep 1 fold 4] DecisionTree+None done. ThrBV=2640 TopBV=-1440
+[rep 1 fold 5] DecisionTree+None done. ThrBV=1420 TopBV=-1660
+[rep 2 fold 1] DecisionTree+None done. ThrBV=5780 TopBV=1640
+[rep 2 fold 2] DecisionTree+None done. ThrBV=-1480 TopBV=-3640
+[rep 2 fold 3] DecisionTree+None done. ThrBV=620 TopBV=-7820
+[rep 2 fold 4] DecisionTree+None done. ThrBV=-780 TopBV=-4080
+[rep 2 fold 5] DecisionTree+None done. ThrBV=3560 TopBV=1420
+[rep 1 fold 1] RandomForest+None done. ThrBV=5020 TopBV=4720
+[rep 1 fold 2] RandomForest+None done. ThrBV=240 TopBV=540
+[rep 1 fold 3] RandomForest+None done. ThrBV=6940 TopBV=8240
+[rep 1 fold 4] RandomForest+None done. ThrBV=-940 TopBV=2740
+[rep 1 fold 5] RandomForest+None done. ThrBV=1040 TopBV=2300
+[rep 2 fold 1] RandomForest+None done. ThrBV=5460 TopBV=7580
+[rep 2 fold 2] RandomForest+None done. ThrBV=4060 TopBV=3180
+[rep 2 fold 3] RandomForest+None done. ThrBV=2900 TopBV=2740
+[rep 2 fold 4] RandomForest+None done. ThrBV=3420 TopBV=3620
+[rep 2 fold 5] RandomForest+None done. ThrBV=2840 TopBV=4940
+
+=== Cost Sensitivity (Top30% Contacted) ===
+          CostModel        Model  BV_mean      BV_std  BalancedAcc_mean  F1_mean
+Base (FN-100, FP-5) RandomForest  31165.0 2218.466688          0.734693 0.391176
+Base (FN-100, FP-5) DecisionTree  25507.0 2952.126540          0.717934 0.374941
+  Higher FP (FP-20) RandomForest   4060.0 2380.793519          0.734693 0.391176
+  Higher FP (FP-20) DecisionTree  -2012.0 3168.135800          0.717934 0.374941
+   Lower FN (FN-50) RandomForest  44315.0 1677.377252          0.734693 0.391176
+   Lower FN (FN-50) DecisionTree  40037.0 2232.095677          0.717934 0.374941
 '''
 
 '''python
@@ -600,4 +630,70 @@ for cost_label, cost_model in COST_MODELS.items():
     )
 
     print(f"{cost_label}: Wilcoxon p={p:.4g} (n={len(pairs)})")
+'''
+
+'''sh
+[rep 1 fold 1] DecisionTree+None done. ThrBV=56250 TopBV=25015
+[rep 1 fold 2] DecisionTree+None done. ThrBV=56250 TopBV=23375
+[rep 1 fold 3] DecisionTree+None done. ThrBV=56250 TopBV=29525
+[rep 1 fold 4] DecisionTree+None done. ThrBV=56255 TopBV=26040
+[rep 1 fold 5] DecisionTree+None done. ThrBV=56255 TopBV=25835
+[rep 2 fold 1] DecisionTree+None done. ThrBV=56250 TopBV=28910
+[rep 2 fold 2] DecisionTree+None done. ThrBV=56250 TopBV=23990
+[rep 2 fold 3] DecisionTree+None done. ThrBV=56250 TopBV=20095
+[rep 2 fold 4] DecisionTree+None done. ThrBV=56255 TopBV=23580
+[rep 2 fold 5] DecisionTree+None done. ThrBV=56255 TopBV=28705
+[rep 1 fold 1] RandomForest+None done. ThrBV=39425 TopBV=31780
+[rep 1 fold 2] RandomForest+None done. ThrBV=54920 TopBV=27885
+[rep 1 fold 3] RandomForest+None done. ThrBV=43270 TopBV=35060
+[rep 1 fold 4] RandomForest+None done. ThrBV=56505 TopBV=29935
+[rep 1 fold 5] RandomForest+None done. ThrBV=40145 TopBV=29525
+[rep 2 fold 1] RandomForest+None done. ThrBV=57185 TopBV=34445
+[rep 2 fold 2] RandomForest+None done. ThrBV=38665 TopBV=30345
+[rep 2 fold 3] RandomForest+None done. ThrBV=41160 TopBV=29935
+[rep 2 fold 4] RandomForest+None done. ThrBV=39385 TopBV=30755
+[rep 2 fold 5] RandomForest+None done. ThrBV=39270 TopBV=31985
+Base (FN-100, FP-5): Wilcoxon p=0.0009766 (n=10)
+[rep 1 fold 1] DecisionTree+None done. ThrBV=56250 TopBV=39665
+[rep 1 fold 2] DecisionTree+None done. ThrBV=56250 TopBV=38425
+[rep 1 fold 3] DecisionTree+None done. ThrBV=56250 TopBV=43075
+[rep 1 fold 4] DecisionTree+None done. ThrBV=56255 TopBV=40440
+[rep 1 fold 5] DecisionTree+None done. ThrBV=56255 TopBV=40285
+[rep 2 fold 1] DecisionTree+None done. ThrBV=56250 TopBV=42610
+[rep 2 fold 2] DecisionTree+None done. ThrBV=56250 TopBV=38890
+[rep 2 fold 3] DecisionTree+None done. ThrBV=56250 TopBV=35945
+[rep 2 fold 4] DecisionTree+None done. ThrBV=56255 TopBV=38580
+[rep 2 fold 5] DecisionTree+None done. ThrBV=56255 TopBV=42455
+[rep 1 fold 1] RandomForest+None done. ThrBV=48545 TopBV=44780
+[rep 1 fold 2] RandomForest+None done. ThrBV=57205 TopBV=41835
+[rep 1 fold 3] RandomForest+None done. ThrBV=51565 TopBV=47260
+[rep 1 fold 4] RandomForest+None done. ThrBV=49925 TopBV=43385
+[rep 1 fold 5] RandomForest+None done. ThrBV=47980 TopBV=43075
+[rep 2 fold 1] RandomForest+None done. ThrBV=56345 TopBV=46795
+[rep 2 fold 2] RandomForest+None done. ThrBV=46465 TopBV=43695
+[rep 2 fold 3] RandomForest+None done. ThrBV=48265 TopBV=43385
+[rep 2 fold 4] RandomForest+None done. ThrBV=49235 TopBV=44005
+[rep 2 fold 5] RandomForest+None done. ThrBV=49220 TopBV=44935
+Lower FN (FN-50): Wilcoxon p=0.0009766 (n=10)
+[rep 1 fold 1] DecisionTree+None done. ThrBV=1540 TopBV=-2540
+[rep 1 fold 2] DecisionTree+None done. ThrBV=-2240 TopBV=-4300
+[rep 1 fold 3] DecisionTree+None done. ThrBV=7500 TopBV=2300
+[rep 1 fold 4] DecisionTree+None done. ThrBV=2640 TopBV=-1440
+[rep 1 fold 5] DecisionTree+None done. ThrBV=1420 TopBV=-1660
+[rep 2 fold 1] DecisionTree+None done. ThrBV=5780 TopBV=1640
+[rep 2 fold 2] DecisionTree+None done. ThrBV=-1480 TopBV=-3640
+[rep 2 fold 3] DecisionTree+None done. ThrBV=620 TopBV=-7820
+[rep 2 fold 4] DecisionTree+None done. ThrBV=-780 TopBV=-4080
+[rep 2 fold 5] DecisionTree+None done. ThrBV=3560 TopBV=1420
+[rep 1 fold 1] RandomForest+None done. ThrBV=5020 TopBV=4720
+[rep 1 fold 2] RandomForest+None done. ThrBV=240 TopBV=540
+[rep 1 fold 3] RandomForest+None done. ThrBV=6940 TopBV=8240
+[rep 1 fold 4] RandomForest+None done. ThrBV=-940 TopBV=2740
+[rep 1 fold 5] RandomForest+None done. ThrBV=1040 TopBV=2300
+[rep 2 fold 1] RandomForest+None done. ThrBV=5460 TopBV=7580
+[rep 2 fold 2] RandomForest+None done. ThrBV=4060 TopBV=3180
+[rep 2 fold 3] RandomForest+None done. ThrBV=2900 TopBV=2740
+[rep 2 fold 4] RandomForest+None done. ThrBV=3420 TopBV=3620
+[rep 2 fold 5] RandomForest+None done. ThrBV=2840 TopBV=4940
+Higher FP (FP-20): Wilcoxon p=0.0009766 (n=10)
 '''
