@@ -1,8 +1,10 @@
-# ISDM Assignment
+# CIS 111-6 INTELLIGENT SYSTEMS AND DATA MINING
 
 '''python
 import numpy as np
 import pandas as pd
+
+import matplotlib.pyplot as plt
 
 from sklearn.model_selection import StratifiedKFold, RandomizedSearchCV
 from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score, balanced_accuracy_score
@@ -51,6 +53,23 @@ X shape: (41188, 52)
 '''
 
 '''python
+class_counts = df_raw["y"].value_counts()
+
+plt.figure()
+class_counts.plot(kind="bar")
+plt.xlabel("Subscription Outcome")
+plt.ylabel("Number of Customers")
+plt.title("Class Distribution in Bank Marketing Dataset")
+plt.xticks(rotation=0)
+plt.tight_layout()
+plt.show()
+'''
+
+'''sh
+<Figure size 640x480 with 1 Axes>
+'''
+
+'''python
 COST_MODEL = {"TP": 100, "FP": -5, "FN": -100, "TN": 0}
 
 def compute_business_value_from_cm(cm, cost_model):
@@ -61,7 +80,7 @@ def compute_business_value_from_cm(cm, cost_model):
             + tn* cost_model["TN"])
 
 def preds_from_threshold(y_proba, threshold):
-    return (y_prthresholdoba >= ).astype(int)
+    return (y_proba >= threshold).astype(int)
 
 def best_threshold_on_train(y_true_train, y_proba_train, cost_model, thresholds=None):
     if thresholds is None:
@@ -173,7 +192,7 @@ def evaluate_model_cv(
     outer_splits=5,
     outer_repeats=2,
     inner_splits=3,
-    n_iter=12,              # keep small for runtime
+    n_iter=12,
     random_state=42,
     threshold_grid=None,
 ):
@@ -696,4 +715,78 @@ Lower FN (FN-50): Wilcoxon p=0.0009766 (n=10)
 [rep 2 fold 4] RandomForest+None done. ThrBV=3420 TopBV=3620
 [rep 2 fold 5] RandomForest+None done. ThrBV=2840 TopBV=4940
 Higher FP (FP-20): Wilcoxon p=0.0009766 (n=10)
+'''
+
+'''python
+main_table = summary[
+    summary["DecisionRule"] == "Top30PctContacted"
+][[
+    "Model", "Sampler", "BV_mean", "BV_std",
+    "BalAcc_mean", "Prec_mean", "Rec_mean", "F1_mean"
+]]
+
+print(main_table.to_string(index=False))
+'''
+
+'''sh
+       Model Sampler  BV_mean      BV_std  BalAcc_mean  Prec_mean  Rec_mean  F1_mean
+RandomForest    None  31165.0 2218.466688     0.734693   0.269013  0.716595 0.391176
+RandomForest   SMOTE  28520.5 2198.273881     0.726860   0.263794  0.702694 0.383588
+DecisionTree    None  25507.0 2952.126540     0.717934   0.257848  0.686853 0.374941
+'''
+
+'''python
+wilcoxon_table = pd.DataFrame([
+    {
+        "Decision Rule": "Threshold Optimised",
+        "Wilcoxon Statistic": stat_thr,
+        "p-value": p_thr,
+        "Significant (α=0.05)": p_thr < 0.05
+    },
+    {
+        "Decision Rule": "Top 30% Contacted",
+        "Wilcoxon Statistic": stat_top,
+        "p-value": p_top,
+        "Significant (α=0.05)": p_top < 0.05
+    }
+])
+
+print(wilcoxon_table.to_string(index=False))
+'''
+
+'''sh
+      Decision Rule  Wilcoxon Statistic  p-value  Significant (α=0.05)
+Threshold Optimised                 3.0 0.997070                 False
+  Top 30% Contacted                55.0 0.000977                  True
+'''
+
+'''python
+plot_df = results_df[
+    (results_df["DecisionRule"] == "Top30PctContacted") &
+    (results_df["Sampler"] == "None") &
+    (results_df["Model"].isin(["DecisionTree", "RandomForest"]))
+]
+
+dt_values = plot_df[plot_df["Model"] == "DecisionTree"]["BusinessValue"]
+rf_values = plot_df[plot_df["Model"] == "RandomForest"]["BusinessValue"]
+
+plt.figure()
+plt.boxplot([dt_values, rf_values], labels=["Decision Tree", "Random Forest"])
+plt.ylabel("Business Value")
+plt.title("Business Value Distribution under Campaign-Constrained Decision Rule")
+plt.tight_layout()
+plt.show()
+'''
+
+'''sh
+/tmp/ipykernel_3631/2056122464.py:11: MatplotlibDeprecationWarning: The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+  plt.boxplot([dt_values, rf_values], labels=["Decision Tree", "Random Forest"])
+<Figure size 640x480 with 1 Axes>
+'''
+
+'''python
+results_df.to_csv("results_df.csv", index=False)
+best_params_df.to_csv("best_params_df.csv", index=False)
+summary.to_csv("summary.csv", index=False)
+sens_summary.to_csv("sensitivity_summary.csv", index=False)
 '''

@@ -1,7 +1,0 @@
-,Model,Accuracy,Precision,Recall,F1,BalancedAcc,BusinessValue,Threshold,Split,BestParams
-0,DecisionTree,0.11264870114105366,0.11264870114105366,1.0,0.20248745363299148,0.5,84375,0.0,Original,"{'ccp_alpha': 0.0, 'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 2}"
-1,DecisionTree,0.11264870114105366,0.11264870114105366,1.0,0.20248745363299148,0.5,84375,0.0,SMOTE,"{'ccp_alpha': 0.0, 'criterion': 'gini', 'max_depth': 15, 'min_samples_leaf': 1, 'min_samples_split': 2}"
-2,DecisionTree,0.11264870114105366,0.11264870114105366,1.0,0.20248745363299148,0.5,84375,0.0,SMOTE_ENN,"{'ccp_alpha': 0.0, 'criterion': 'gini', 'max_depth': 15, 'min_samples_leaf': 1, 'min_samples_split': 2}"
-3,DecisionTree,0.11264870114105366,0.11264870114105366,1.0,0.20248745363299148,0.5,84375,0.0,SMOTE_Tomek,"{'ccp_alpha': 0.0, 'criterion': 'gini', 'max_depth': 15, 'min_samples_leaf': 1, 'min_samples_split': 2}"
-4,DecisionTree,0.11264870114105366,0.11264870114105366,1.0,0.20248745363299148,0.5,84375,0.0,Over,"{'ccp_alpha': 0.0, 'criterion': 'gini', 'max_depth': 15, 'min_samples_leaf': 1, 'min_samples_split': 2}"
-5,DecisionTree,0.11264870114105366,0.11264870114105366,1.0,0.20248745363299148,0.5,84375,0.0,Under,"{'ccp_alpha': 0.001, 'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 2}"
